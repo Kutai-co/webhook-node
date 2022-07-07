@@ -12,7 +12,7 @@
  var xhub = require('express-x-hub');
  
  app.set('port', (process.env.PORT || 5000));
- app.listen(app.get('port'));
+ app.listen(app.get('port'), console.log('Server started on port ' + app.get('port')));
  
  app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
  app.use(bodyParser.json());
@@ -21,7 +21,7 @@
  var received_updates = [];
  
  app.get('/', function(req, res) {
-   console.log(req);
+   console.log("req", req.body);
    res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
  });
  
