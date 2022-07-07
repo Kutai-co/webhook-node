@@ -58,7 +58,7 @@ app.post('/webhook', async (req, res) => {
     //   } catch (e) {
     //     console.log('axios Error', e.req)
     //   }
-    // }
+    }
     res.sendStatus(200)
   } else {
     // Return a '404 Not Found' if event is not from a WhatsApp API
