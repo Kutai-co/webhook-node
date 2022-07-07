@@ -22,7 +22,8 @@
  
  app.get('/', function(req, res) {
    console.log("req", req.body);
-   res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
+   res.status(200).send('verified');
+//    res.send('<pre>' + JSON.stringify(received_updates, null, 2) + '</pre>');
  });
  
  app.get(['/facebook', '/instagram'], function(req, res) {
