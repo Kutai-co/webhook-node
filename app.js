@@ -11,7 +11,7 @@
 // (copy token from DevX getting started page
 // and save it as environment variable into the .env file)
 // const token = process.env.WHATSAPP_TOKEN;
-const token = "token";
+const token = "EAAGUVQaZAZA5cBAJZBnS7soFzLpGE2j8B0dEiryTg3ZALHEl2IkZCE9d5QKd3RJVZCttxahS7aolYetdRUkXEDG3krmtJdHdR64KsRjUFZBloKB2TIF5ldHnnMb20itn5ffI3mtWgXc4uoLrsIQy2UKGPlv8M5qw6xMZCLnZBpKTGZBfRFPXPfbvSkENeZCZCy268TtcRzzsr0Hoy7OiU0drKUGl";
 
 // Imports dependencies and set up http server
 const request = require("request"),
