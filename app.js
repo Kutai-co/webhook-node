@@ -46,20 +46,31 @@ app.post('/webhook', async (req, res) => {
       req.body?.entry[0]?.changes[0]?.value?.messages &&
       req.body?.entry[0]?.changes[0]?.value?.messages[0]
     ) {
-      try {
-        await axios({
-          method: 'POST', // Required, HTTP method, a string, e.g. POST, GET
-          url: 'https://graph.facebook.com/v13.0/' + phone_number_id + '/messages?access_token=' + token,
-          data: {
-            messaging_product: 'whatsapp',
-            to: from,
-            text: { body: 'hola Soy Kutai' },
-          },
-          headers: { 'Content-Type': 'application/json' },
-        })
-      } catch (e) {
-        console.log('axios Error', e)
+      var data = JSON.stringify({
+        messaging_product: 'whatsapp',
+        to: from,
+        text: {
+          body: 'hello world!',
+        },
+      })
+
+      var config = {
+        method: 'post',
+        url: `https://graph.facebook.com/v13.0/${phone_number_id}/messages`,
+        headers: {
+          Authorization: 'Bearer ' + token,
+          'Content-Type': 'application/json',
+        },
+        data: data,
       }
+
+      axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data))
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
     }
     res.sendStatus(200)
   } else {
