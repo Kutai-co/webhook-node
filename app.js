@@ -48,7 +48,7 @@ app.post('/webhook', async (req, res) => {
     ) {
       var data = JSON.stringify({
         messaging_product: 'whatsapp',
-        to: from,
+        to: "573136104884",
         text: {
           body: 'hello world!',
         },
@@ -56,7 +56,7 @@ app.post('/webhook', async (req, res) => {
 
       var config = {
         method: 'post',
-        url: `https://graph.facebook.com/v13.0/${phone_number_id}/messages`,
+        url: `https://graph.facebook.com/v13.0/109000051872634/messages`,
         headers: {
           Authorization: 'Bearer ' + token,
           'Content-Type': 'application/json',
