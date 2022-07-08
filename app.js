@@ -58,7 +58,7 @@ app.post('/webhook', async (req, res) => {
           headers: { 'Content-Type': 'application/json' },
         })
       } catch (e) {
-        console.log('axios Error', e.req)
+        console.log('axios Error', e)
       }
     }
     res.sendStatus(200)
