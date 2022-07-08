@@ -12,7 +12,7 @@
 // and save it as environment variable into the .env file)
 // const token = process.env.WHATSAPP_TOKEN;
 const token =
-  'EAAGUVQaZAZA5cBAMumZAmh8j2RQmUNkhfZCuyiw5BoSF5J362TvDKaFzxnA0478C6t5uZB3QYM79e5afwRMd2AZAYyglcktFpJilEA9POp7KPZCRh69pcuAGWJDwoZAGGPlyxKZBvbnvLPxWSdtJgnjW6rGBRVxRdzgq1vdufOyknRMZANi2aMD2AnHL7HU3rvkay8lfTimggCqK2aQLl3E3ll'
+  'EAAGUVQaZAZA5cBALFbdj32zllZCZC3zrGZChvMRR7EDLo5RHgJ6NdV8kdumTZAPlm6bNTvZCxud4wpzGDN6pg2zZBsY3Gc8NPejiluKZCI1JIo4ZBAgqOqOVYEAdtz4ZCOmBi6huGmNs353mTunGsGk5zE8mMLDZCewDhLwV3ZAst0ZCpVRcZAoixMQGZBTQLWaPRRW2K8ZBDwz6iXt6vyqXjCpwgUbE9'
 
 // Imports dependencies and set up http server
 const request = require('request'),
