@@ -11,8 +11,7 @@
 // (copy token from DevX getting started page
 // and save it as environment variable into the .env file)
 // const token = process.env.WHATSAPP_TOKEN;
-const token =
-  'EAAGUVQaZAZA5cBALFbdj32zllZCZC3zrGZChvMRR7EDLo5RHgJ6NdV8kdumTZAPlm6bNTvZCxud4wpzGDN6pg2zZBsY3Gc8NPejiluKZCI1JIo4ZBAgqOqOVYEAdtz4ZCOmBi6huGmNs353mTunGsGk5zE8mMLDZCewDhLwV3ZAst0ZCpVRcZAoixMQGZBTQLWaPRRW2K8ZBDwz6iXt6vyqXjCpwgUbE9'
+const token = process.env.TOKEN;
 
 // Imports dependencies and set up http server
 const request = require('request'),
@@ -46,31 +45,7 @@ app.post('/webhook', async (req, res) => {
       req.body?.entry[0]?.changes[0]?.value?.messages &&
       req.body?.entry[0]?.changes[0]?.value?.messages[0]
     ) {
-      var data = JSON.stringify({
-        messaging_product: 'whatsapp',
-        to: "573136104884",
-        text: {
-          body: 'hello world!',
-        },
-      })
-
-      var config = {
-        method: 'post',
-        url: `https://graph.facebook.com/v13.0/109000051872634/messages`,
-        headers: {
-          Authorization: 'Bearer ' + token,
-          'Content-Type': 'application/json',
-        },
-        data: data,
-      }
-
-      axios(config)
-        .then(function (response) {
-          console.log(JSON.stringify(response.data))
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+     
     }
     res.sendStatus(200)
   } else {
@@ -108,3 +83,5 @@ app.get('/webhook', (req, res) => {
     }
   }
 })
+
+
