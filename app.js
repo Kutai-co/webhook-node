@@ -28,12 +28,6 @@ app.post('/webhook', async (req, res) => {
   let body = req.body
 
   console.log(JSON.stringify(body, null, 2))
-  let phone_number_id = body?.entry[0]?.changes[0]?.value?.metadata?.phone_number_id
-  let msg_body = body?.entry[0]?.changes[0]?.value?.messages[0]?.text?.body
-  let from = body?.entry[0]?.changes[0]?.value?.messages[0]?.from
-  console.log('-----------------------------------------------------')
-  console.log(phone_number_id, from, msg_body)
-  console.log('-----------------------------------------------------')
 
   if (body?.object) {
     if (
@@ -43,13 +37,20 @@ app.post('/webhook', async (req, res) => {
       body?.entry[0]?.changes[0]?.value?.messages &&
       body?.entry[0]?.changes[0]?.value?.messages[0]
     ) {
-      console.log('Se valida el mensaje')
-      console.log(msg_body)
+      console.log('Se valida que tiene mensaje')
+      let phone_number_id = body?.entry[0]?.changes[0]?.value?.metadata?.phone_number_id
+      let messages = body?.entry[0]?.changes[0]?.value?.messages
+      let from = messages ? messages[0].from : null
+      let msg_body = messages ? messages[0]?.text?.body : null
+
+      console.log('-----------------------------------------------------')
+      console.log(phone_number_id, from, msg_body)
+      console.log('-----------------------------------------------------')
     }
     res.sendStatus(200)
   } else {
     // Return a '404 Not Found' if event is not from a WhatsApp API
-    console.log('No se valida el mensaje')
+    console.log('No es un mensaje')
     res.sendStatus(404)
   }
 })
